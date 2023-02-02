@@ -74,8 +74,8 @@ pipeline {
                 sh ("sed -i -- 's/REPOSITORY/$REPOSITORY/g' docker-compose.yml")
                 sh ("sed -i -- 's/VERSION/$VERSION/g' docker-compose.yml")
                 sshagent(['ssh-ec2']){
-                    sh 'scp -o StrictHostKeyChecking=no docker-compose.yml $INSTANCEDEV:/home/ec2-user'
-                    sh 'ssh $INSTANCEDEV ls -lrt'
+                    sh 'scp -o StrictHostKeyChecking=no docker-compose.yml $INSTANCETST:/home/ec2-user'
+                    sh 'ssh $INSTANCETST ls -lrt'
                 }
             }
         }
@@ -90,8 +90,8 @@ pipeline {
                 sh ("sed -i -- 's/REPOSITORY/$REPOSITORY/g' docker-compose.yml")
                 sh ("sed -i -- 's/VERSION/$VERSION/g' docker-compose.yml")
                 sshagent(['ssh-ec2']){
-                    sh 'scp -o StrictHostKeyChecking=no docker-compose.yml $INSTANCEDEV:/home/ec2-user'
-                    sh 'ssh $INSTANCEDEV ls -lrt'
+                    sh 'scp -o StrictHostKeyChecking=no docker-compose.yml $INSTANCEPRD:/home/ec2-user'
+                    sh 'ssh $INSTANCEPRD ls -lrt'
                 }
             }
         }
