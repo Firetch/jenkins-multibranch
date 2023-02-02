@@ -91,7 +91,8 @@ pipeline {
 
         stage('Notify Telegram') {
             steps {
-                echo "NOTIFICACION TELEGRAM"
+                sh 'chmod +x /automation/telegram.sh'
+                sh './automation/telegram.sh'
             }
         }
 
