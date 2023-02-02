@@ -1,4 +1,5 @@
 #!/bin/bash
+# set -x
 source ./automation/read_config.sh
 source ./automation/docker_getenv.sh
 
